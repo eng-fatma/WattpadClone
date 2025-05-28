@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<head>
+        <title>القصة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #fff8f2;
+            color: #333;
+        }
+
+        .story-container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+
+        .story-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .story-title {
+            font-size: 28px;
+            color: #ff5722;
+            margin-bottom: 10px;
+        }
+
+        .story-author {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .story-content {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="story-container">
+        <a href="Stories.html" class="back-button">⬅ الرجوع للصفحة السابقة</a>
+
+        <img id="story-image" class="story-image" src="" alt="غلاف القصة">
+        <div id="story-title" class="story-title"></div>
+        <div id="story-author" class="story-author"></div>
+        <div id="story-content" class="story-content"></div>
+    </div>
+
+    <script>
+        const stories = {
+            1: {
+                title: "عالم صوفي  ",
+                author: "جوستاين غاردر",
+                image: "https://th.bing.com/th/id/R.50916d7d7abf23cccb70a4a7a30bd9b1?rik=ZhkkkFjQLB2coQ&pid=ImgRaw&r=0",
+                content: "تدور القصة حول الفتاة صوفي التي تبدأ في تلقي رسائل غامضة تحكي لها عن تاريخ الفلسفة. يقدّم الكتاب بأسلوب مبسط وشائق أهم الأفكار الفلسفية عبر العصور، من الفلاسفة اليونانيين وصولاً إلى الفلسفات المعاصرة. كما يحاول الكتاب أن يُبَسِّط القضايا الفلسفية العميقة التي قد تكون معقدة للقراء المبتدئين."
+            },
+            2: {
+                title: " The Martian",
+                author: "منى المرشود",
+                image: "https://thaka.bing.com/th/id/OIP.F-6xzyTM4g4XVvw0bEkY8gHaNJ?w=186&h=331&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+               content: "تروي القصة عن رائد فضاء يُترك على سطح المريخ، ويحاول البقاء على قيد الحياة باستخدام معرفته العلمية. منذ أن اكتشف أن المركبة الفضائية التي كانت تحمله قد تعرضت للتدمير، أصبح عليه أن يواجه تحديات ضخمة للبقاء على قيد الحياة. يواجه بيئة معادية، قلة الموارد، والعزلة التامة. هذا الكتاب هو مزيج من الخيال العلمي والواقع العلمي."
+            },
+            3: {
+                title: " أفراح الروح ",
+                author: "سيد قطب ",
+                image: "https://thaka.bing.com/th/id/OIP.Z4c2V_CGjfSX5GXVdjCZVwAAAA?w=116&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                                content: "هذه مجموعة من المقالات الفكرية التي تناولت الحياة الإنسانية بأسلوب فلسفي عميق، موضحًا عبرها مدى تأثير الحياة الروحية في البشر. يناقش سيد قطب في هذا الكتاب التوازن بين الجوانب الروحية والجسدية للإنسان، ويعرض كيف يمكن للإنسان أن يعيش حياة مليئة بالسلام الداخلي إذا فهم تلك العلاقة."
+            },
+            4: {
+                title: "  الكون في قشرة جوز  ",
+                author: "سيد قطب ",
+                image: "https://thaka.bing.com/th/id/OIP.pSzb08Bs1UInNjHkKBpR0wHaJ_?w=166&h=220&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                content: "كتاب يناقش مسائل الكون والفلسفة الطبيعية بطريقة تسهل الفهم، ويحاول أن يشرح أساسيات الكون. يطرح هوكينغ العديد من الأسئلة الكبيرة التي شغلت الفلاسفة والعلماء عبر العصور مثل: كيف بدأ الكون؟ هل هناك أكثر من كون؟ وما هي قوانين الكون التي تتحكم في كل شيء؟"
+            },
+            5: {
+                title: "قصة الفيزياء",
+                author: "ليزا راندال",
+                image: "https://thaka.bing.com/th/id/OIP.nSLIiIwU0iD9SMNNppKaGwHaKX?w=152&h=212&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                content: "تستعرض ليزا راندال في هذا الكتاب العديد من الأبعاد الفيزيائية للعالم. تبدأ الكتاب بمفهوم الفضاء والزمن، وتطرح أسئلة علمية تتعلق بمفاهيم مثل الثقوب السوداء، الجاذبية، والبعد الرابع. هذا الكتاب ليس مجرد سيرة تاريخية للفيزياء، بل هو استكشاف عميق للعالم الذي نعيش فيه."
+            },
+            6: {
+                title: "تاريخ موجز للزمان",
+                author: "ستيفن هوكينغ",
+                image: "https://thaka.bing.com/th/id/OIP.bJCNuOmBCXswi8CHYWWvJwHaGD?w=208&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                content: "في هذا الكتاب، يعرض هوكينغ أفكارًا علمية فلسفية تتعلق بالزمن، الكون، والمكان. يناقش بشكل مبسط وواقعي أفكارًا حول نشوء الكون ونهاية الزمان، كما يوضح العوالم الموازية والتكنولوجيا المستقبلية التي قد تغير مجرى الحياة."
+            },
+            7: {
+                title: "المخ الأبلَه",
+                author: "دين برنيت",
+                image: "https://thaka.bing.com/th/id/OIP.MI4I4HPdCENPb1PgaNu2lAHaLH?w=115&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                content: "كتاب يهتم بتفسير طريقة عمل الدماغ البشري وكيف أن العقل البشري يتصرف في حالات معينة. يتناول الكتاب بأسلوب بسيط كيف نعمل قراراتنا اليومية بناءً على تفاعلات عصبية في أدمغتنا، وكيف يؤثر ذلك على سلوكنا."
+            },
+            8: {
+                title: "الواقع ليس كما يبدو",
+                author: "كارلو روفيلي",
+                image: "https://thaka.bing.com/th/id/OIP.CHe-CZA_ULHvqfZB2cb0jgAAAA?w=176&h=254&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                content: "هذا الكتاب يفتح آفاقًا جديدة لفهم عالمنا. يناقش كارلو روفيلي في هذا الكتاب الفيزياء الحديثة والطبيعة الغامضة للزمان والمكان. يحاول الكتاب شرح المفاهيم المعقدة للفيزياء بطريقة مبسطة تساعد القارئ على فهم أساسيات الفهم العلمي العميق للواقع."
+            },
+            9: {
+                title: "فكر بسرعة وفكر ببطء",
+                author: "دانيال كانيمان",
+                image: "https://ak-asset.jarir.com/akeneo-prod/asset/m1images/4/4/449265.jpg",
+                content: "يتناول الكتاب دراسة العقل البشري وكيف يتخذ الناس قرارات سريعة وأخرى بطيئة. يوضح كانيمان أن هناك نوعين من التفكير: التفكير السريع والغير واعي، والتفكير البطيء والعقلاني. الكتاب يعرض نظريات علمية وفلسفية حول كيفية تأثير العقل على اختياراتنا."
+            }
+        };
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        if (stories[id]) {
+            document.getElementById("story-title").innerText = stories[id].title;
+            document.getElementById("story-author").innerText = "بواسطة: " + stories[id].author;
+            document.getElementById("story-content").innerText = stories[id].content;
+            document.getElementById("story-image").src = stories[id].image;
+        } else {
+            document.getElementById("story-title").innerText = "القصة غير موجودة";
+            document.getElementById("story-content").innerText = "عذرًا، لم نتمكن من العثور على القصة المطلوبة.";
+            document.getElementById("story-image").style.display = "none";
+        }
+    </script>
+</body>
+</html>
